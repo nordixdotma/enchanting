@@ -8,6 +8,7 @@ import RecommendedTours from "@/components/recommended-tours"
 import MoroccoExpertiseSection from "@/components/morocco-expertise-section"
 import WhyChooseMoroccoSection from "@/components/why-choose-morocco-section"
 import Personalized from "@/components/personalized"
+import LatestArticlesSection from "@/components/latest-articles-section"
 
 // Lazy load non-critical sections
 const Enchantingservices = dynamic(() => import("@/components/services"), {
@@ -25,6 +26,7 @@ export default function Home() {
       <MoroccoExpertiseSection />
       <Personalized />
       <WhyChooseMoroccoSection />
+      <LatestArticlesSection />
     </div>
   )
 }

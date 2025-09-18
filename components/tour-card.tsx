@@ -12,7 +12,7 @@ interface TourCardProps {
 
 export default function TourCard({ title, image, duration, originalPrice, discountedPrice, alt }: TourCardProps) {
   return (
-    <div className="bg-white shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-white border border-gray-300 overflow-hidden hover:border-primary transition-all duration-300">
       <div className="relative h-64 w-full">
         <Image
           src={image || "/placeholder.svg"}
@@ -24,14 +24,14 @@ export default function TourCard({ title, image, duration, originalPrice, discou
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 mb-4 min-h-[3.5rem] leading-tight">{title}</h3>
-        <div className="flex items-center text-gray-600 mb-4">
-          <Clock className="w-4 h-4 mr-2 text-primary" />
-          <span className="text-sm">{duration}</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 ">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center text-gray-600">
+            <Clock className="w-4 h-4 mr-2 text-primary" />
+            <span className="text-sm">{duration}</span>
+          </div>
+          <div className="flex flex-col items-end">
             <span className="text-gray-400 line-through text-sm">{originalPrice}</span>
-            <span className="text-2xl font-bold text-red-600">{discountedPrice}</span>
+            <span className="text-xl font-bold text-red-600">{discountedPrice}</span>
           </div>
         </div>
       </div>

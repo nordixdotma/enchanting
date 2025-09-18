@@ -44,7 +44,7 @@ export default function HeroSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
             >
-              <h1 className="font-optima mb-4 text-3xl font-bold leading-tight text-shadow text-white md:text-4xl lg:text-5xl">
+              <h1 className="font-optima mb-4 text-5xl font-bold leading-tight text-shadow text-white md:text-4xl lg:text-5xl">
                 Enchanting Morocco
               </h1>
               <p className="mb-6 text-base text-shadow text-white/90 max-w-2xl mx-auto font-work-sans">
