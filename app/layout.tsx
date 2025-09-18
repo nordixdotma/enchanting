@@ -78,14 +78,14 @@ export default function RootLayout({
           {/* Background image with overlay */}
           <div className="fixed inset-0 z-[-1]">
             <Image
-              src="https://images.unsplash.com/photo-1699210259985-fba56d28c3df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1538230575309-59dfc388ae36?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Background"
               fill
               priority
               className="object-cover"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
 
           <div className="flex min-h-screen flex-col">
