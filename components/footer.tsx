@@ -116,8 +116,8 @@ export default function Footer() {
               <ul className="space-y-6">
                 {contactInfo.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-primary/20 mr-4">
-                      <item.icon className="h-5 w-5 text-primary" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-primary/60 mr-4 flex-shrink-0">
+                      <item.icon className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <p className="font-medium text-white font-optima">{item.title}</p>
