@@ -59,10 +59,10 @@ export default function Header() {
       )}
     >
       <Container className="max-w-7xl mx-auto">
-        <div className="flex h-16 md:h-20 items-center justify-between">
-          {/* Logo */}
+        {/* Mobile layout - single row */}
+        <div className="md:hidden flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center z-20">
-            <div className="relative h-14 w-28 md:h-16 md:w-32">
+            <div className="relative h-14 w-28">
               <Image
                 src={scrolled ? "/logo.png" : "/whitelogo.png"}
                 alt="Enchanting Association Logo"
@@ -73,101 +73,121 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center gap-4 flex-1 ml-8">
-            {/* Home link */}
-            <Link
-              href="/"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              } ${pathname === "/" ? "text-primary" : ""}`}
-            >
-              HOME
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              MOROCCO TOURS
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              MOROCCO DESERT TOURS
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              MARRAKECH DAY TRIPS
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              MOROCCO TREKKING
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              SHORE EXCURSIONS
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-
-            <Link
-              href="#"
-              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
-                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-              }`}
-            >
-              BLOG
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </nav>
-
           <div className="flex items-center gap-4">
-            {/* Contact link - visible only on md screens and up */}
-            <div className="hidden md:block">
-              <Link
-                href="mailto:contact@enchanting.org"
-                className="bg-primary text-white px-4 py-2 text-sm md:text-base font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
-              >
-                CONTACT
-              </Link>
-            </div>
-
             {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="icon"
-              className={`md:hidden ${scrolled ? "text-gray-800 hover:bg-gray-100" : "text-white hover:bg-white/20"}`}
+              className={`${scrolled ? "text-gray-800 hover:bg-gray-100" : "text-white hover:bg-white/20"}`}
               onClick={toggleMenu}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               <span className="sr-only">Toggle menu</span>
             </Button>
+          </div>
+        </div>
+
+        {/* Desktop layout - two rows */}
+        <div className="hidden md:block">
+          {/* First row: Logo and Contact */}
+          <div className="flex h-20 items-center justify-between">
+            <Link href="/" className="flex items-center z-20">
+              <div className="relative h-16 w-32">
+                <Image
+                  src={scrolled ? "/logo.png" : "/whitelogo.png"}
+                  alt="Enchanting Association Logo"
+                  fill
+                  className="object-contain transition-opacity duration-300"
+                  priority
+                />
+              </div>
+            </Link>
+
+            <div className="flex items-center">
+              <Link
+                href="mailto:contact@enchanting.org"
+                className="bg-primary text-white px-4 py-2 text-base font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
+              >
+                CONTACT
+              </Link>
+            </div>
+          </div>
+
+          {/* Second row: Navigation with border */}
+          <div
+            className={cn("border-t transition-colors duration-300", scrolled ? "border-gray-200" : "border-white/20")}
+          >
+            <nav className="flex items-center justify-center gap-8 py-4">
+              <Link
+                href="/"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                } ${pathname === "/" ? "text-primary" : ""}`}
+              >
+                HOME
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                MOROCCO TOURS
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                MOROCCO DESERT TOURS
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                MARRAKECH DAY TRIPS
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                MOROCCO TREKKING
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                SHORE EXCURSIONS
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              <Link
+                href="#"
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                  scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+                }`}
+              >
+                BLOG
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </nav>
           </div>
         </div>
       </Container>
