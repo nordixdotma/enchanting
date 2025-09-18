@@ -148,7 +148,7 @@ export default function Footer() {
               </p>
               <div className="mt-6">
                 <Image
-                  src="https://demo.goodlayers.com/traveltour/main4/wp-content/uploads/2019/04/creditcard-logo.png"
+                  src="/creditcard-logo.png"
                   alt="Accepted Payment Methods"
                   width={300}
                   height={60}
