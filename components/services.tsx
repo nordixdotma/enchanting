@@ -26,8 +26,7 @@ export default function ServicesSection() {
   const services = [
     {
       title: "Morocco Tours",
-      image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?q=80&w=2070&auto=format&fit=crop",
-      duration: "3-15 Days",
+      image: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Explore Morocco's imperial cities, ancient medinas, and stunning landscapes with our comprehensive tour packages designed for every traveler.",
       link: "/morocco-tours",
@@ -35,7 +34,6 @@ export default function ServicesSection() {
     {
       title: "Morocco Desert Tours",
       image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=2070&auto=format&fit=crop",
-      duration: "2-7 Days",
       description:
         "Experience the magic of the Sahara Desert with camel treks, luxury desert camps, and unforgettable sunrises over golden dunes.",
       link: "/desert-tours",
@@ -43,7 +41,6 @@ export default function ServicesSection() {
     {
       title: "Marrakech Day Trips",
       image: "https://images.unsplash.com/photo-1585004607620-fb4c44331e73?q=80&w=2070&auto=format&fit=crop",
-      duration: "1 Day",
       description:
         "Discover the Red City's hidden gems, from bustling souks and historic palaces to the famous Jemaa el-Fnaa square.",
       link: "/marrakech-day-trips",
@@ -51,15 +48,13 @@ export default function ServicesSection() {
     {
       title: "Morocco Trekking",
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070&auto=format&fit=crop",
-      duration: "2-10 Days",
       description:
         "Adventure through the Atlas Mountains, Berber villages, and scenic valleys with our expert mountain guides.",
       link: "/morocco-trekking",
     },
     {
       title: "Shore Excursions",
-      image: "https://images.unsplash.com/photo-1570939274717-7eda259b50ed?q=80&w=2070&auto=format&fit=crop",
-      duration: "4-12 Hours",
+      image: "https://images.unsplash.com/photo-1578350629128-8d74a309360b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description:
         "Perfect for cruise passengers, explore Morocco's coastal cities and nearby attractions with our convenient shore excursions.",
       link: "/shore-excursions",
@@ -86,11 +81,9 @@ export default function ServicesSection() {
               className={cn(
                 "relative overflow-hidden rounded-lg transition-all duration-700 ease-in-out cursor-pointer",
                 activeIndex === index ? "w-[60%]" : "w-[10%]",
+                inView ? `transition-delay-${index * 50}` : "transition-delay-0",
               )}
               onClick={() => setActiveIndex(index)}
-              style={{
-                transitionDelay: inView ? `${index * 50}ms` : "0ms",
-              }}
             >
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full">
@@ -108,7 +101,7 @@ export default function ServicesSection() {
                 <div
                   className={cn(
                     "absolute inset-0 transition-opacity duration-500",
-                    activeIndex === index ? "bg-gradient-to-b from-black/40 via-black/5 to-black/40" : "bg-black/30",
+                    activeIndex === index ? "bg-gradient-to-b from-black/30 via-black/5 to-black/30" : "bg-black/20",
                   )}
                 ></div>
               </div>
@@ -119,7 +112,7 @@ export default function ServicesSection() {
                 <div
                   className={cn(
                     "transition-all duration-500",
-                    activeIndex !== index && "transform -rotate-90 origin-top-left translate-y-40 translate-x-6",
+                    activeIndex !== index && "transform -rotate-90 origin-top-left translate-y-44 translate-x-6",
                   )}
                 >
                   <h3
@@ -130,23 +123,16 @@ export default function ServicesSection() {
                   >
                     {service.title}
                   </h3>
-
-                  {activeIndex === index && (
-                    <div className="flex items-center mt-2 text-primary">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      <span className="text-sm font-medium font-work-sans">{service.duration}</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Service description and link */}
                 {activeIndex === index && (
                   <div className="mt-auto animate-fadeIn max-w-lg">
-                    <div className="bg-primary/30 backdrop-blur-sm p-4 rounded-md border border-primary/40">
+                    <div className="bg-primary/60 backdrop-blur-sm p-4 rounded-md border border-primary/70">
                       <p className="text-white/90 text-sm font-work-sans mb-3">{service.description}</p>
                       <Link
                         href={service.link}
-                        className="inline-flex items-center text-primary hover:text-white transition-colors duration-300 text-sm font-medium"
+                        className="inline-flex items-center text-white hover:text-slate-200 transition-colors duration-300 text-sm font-semibold uppercase"
                       >
                         Learn More
                         <ArrowRight className="ml-1 h-4 w-4" />
@@ -184,16 +170,12 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent"></div>
                   <div className="absolute top-4 left-4">
                     <h3 className="font-optima text-xl text-white">{service.title}</h3>
-                    <div className="flex items-center mt-1 text-primary">
-                      <MapPin className="h-3 w-3 mr-1" />
-                      <span className="text-xs font-medium font-work-sans">{service.duration}</span>
-                    </div>
                   </div>
                 </div>
 
                 {activeIndex === index && (
                   <div className="p-4 animate-fadeIn">
-                    <div className="bg-primary/30 p-3 rounded-md border border-primary/40">
+                    <div className="bg-primary/60 p-3 rounded-md border border-primary/70">
                       <p className="text-white/90 text-xs font-work-sans mb-2">{service.description}</p>
                       <Link
                         href={service.link}

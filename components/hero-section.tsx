@@ -58,8 +58,7 @@ export default function HeroSection() {
                   variant="outline"
                   className="border-white text-primary bg-white hover:bg-white/10 hover:text-white group transition-all duration-300 rounded-none font-work-sans"
                 >
-                  Discover More
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  Discover Tours
                 </Button>
               </div>
             </div>

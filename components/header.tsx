@@ -106,7 +106,7 @@ export default function Header() {
             <div className="flex items-center">
               <Link
                 href="mailto:contact@enchanting.org"
-                className="bg-primary text-white px-4 py-2 text-base font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
+                className="bg-primary text-white px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
               >
                 CONTACT
               </Link>
@@ -117,10 +117,10 @@ export default function Header() {
           <div
             className={cn("border-t transition-colors duration-300", scrolled ? "border-gray-200" : "border-white/20")}
           >
-            <nav className="flex items-center justify-center gap-8 py-4">
+            <nav className="flex items-center justify-center gap-8 py-2">
               <Link
                 href="/"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 } ${pathname === "/" ? "text-primary" : ""}`}
               >
@@ -130,7 +130,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -140,7 +140,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -150,7 +150,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -160,7 +160,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -170,7 +170,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -180,7 +180,7 @@ export default function Header() {
 
               <Link
                 href="#"
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
                   scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
                 }`}
               >
@@ -219,7 +219,7 @@ export default function Header() {
                 <div className="flex items-center justify-between p-6 border-b border-white/10">
                   <Link href="/" className="inline-block" onClick={toggleMenu}>
                     <div className="relative h-10 w-28">
-                      <Image src="/favicon.png" alt="Enchanting Logo" fill className="object-contain" priority />
+                      <Image src="/whitelogo.png" alt="Enchanting Logo" fill className="object-contain" priority />
                     </div>
                   </Link>
                   <Button
@@ -236,25 +236,131 @@ export default function Header() {
                 {/* Navigation links */}
                 <div className="flex-1 overflow-y-auto py-6 px-4">
                   <nav className="space-y-1">
-                    {/* Contact link */}
+                    {/* Navigation links */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Link
+                        href="/"
+                        className={`flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors ${
+                          pathname === "/" ? "bg-primary/20 text-primary" : ""
+                        }`}
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">HOME</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15 }}
                     >
                       <Link
-                        href="mailto:contact@enchanting.org"
+                        href="#"
                         className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
                         onClick={toggleMenu}
                       >
-                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary mr-4">
-                          <Phone className="h-5 w-5" />
-                        </div>
-                        <span className="font-medium text-lg font-optima uppercase">CONTACT</span>
+                        <span className="font-medium text-lg font-optima uppercase">MOROCCO TOURS</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">MOROCCO DESERT TOURS</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25 }}
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">MARRAKECH DAY TRIPS</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">MOROCCO TREKKING</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.35 }}
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">SHORE EXCURSIONS</span>
+                        <ChevronRight className="h-4 w-4 ml-auto" />
+                      </Link>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        <span className="font-medium text-lg font-optima uppercase">BLOG</span>
                         <ChevronRight className="h-4 w-4 ml-auto" />
                       </Link>
                     </motion.div>
                   </nav>
+                </div>
+
+                <div className="p-6 border-t border-white/10">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45 }}
+                  >
+                    <Link
+                      href="mailto:contact@enchanting.org"
+                      className="flex items-center justify-center py-4 px-6 bg-primary text-white font-medium text-lg font-optima uppercase transition-all duration-300 hover:bg-primary/90"
+                      onClick={toggleMenu}
+                    >
+                      <Phone className="h-5 w-5 mr-3" />
+                      CONTACT
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

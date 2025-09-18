@@ -30,20 +30,20 @@ export default function Footer() {
     {
       icon: MapPin,
       title: "Address",
-      value: "Marrakech, Morocco",
+      value: "Boulevard Mozdalifa Immeuble Riad Nawal G Bureau B3 Marrakech 40000",
       link: false,
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+212 662 388 758",
-      link: "tel:+212662388758",
+      value: "+212 661 792 104",
+      link: "tel:+212661792104",
     },
     {
       icon: Mail,
       title: "Email",
-      value: "enchanting.marrakech@gmail.com",
-      link: "mailto:enchanting.marrakech@gmail.com",
+      value: "contact@enchantingmorocco.com",
+      link: "mailto:contact@enchantingmorocco.com",
     },
   ]
 
@@ -56,27 +56,18 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer
-      className="bg-black relative rounded-t-[30px] md:rounded-t-[80px]"
-      style={{
-        backgroundImage:
-          'url("https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <footer className="bg-black relative rounded-t-[30px] md:rounded-t-[80px] footer-background">
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 rounded-t-[30px] md:rounded-t-[80px]"></div>
+      <div className="absolute inset-0 bg-black/30 rounded-t-[30px] md:rounded-t-[80px]"></div>
 
-      <Container className="max-w-6xl mx-auto relative z-10">
+      <Container className="max-w-7xl mx-auto relative z-10">
         {/* Main footer content */}
         <div className="py-16">
-          <div className="grid gap-12 md:grid-cols-3">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             {/* Vision */}
             <div>
               <Link href="/" className="inline-block mb-6">
-                <div className="relative h-12 w-32">
+                <div className="relative h-16 w-32">
                   <Image src="/whitelogo.png" alt="Enchanting Morocco Logo" fill className="object-contain" priority />
                 </div>
               </Link>
@@ -92,7 +83,7 @@ export default function Footer() {
                       key={index}
                       href={social.href}
                       aria-label={social.label}
-                      className="flex h-10 w-10 items-center justify-center rounded-none text-white bg-primary/20 transition-all duration-300 hover:bg-primary/40 hover:scale-110"
+                      className="flex h-10 w-10 items-center justify-center rounded-none text-white bg-primary/60 transition-all duration-300 hover:bg-primary/70 hover:scale-110"
                     >
                       <social.icon size={18} />
                     </a>
@@ -109,7 +100,7 @@ export default function Footer() {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="inline-block text-white/80 transition-all duration-300 hover:text-primary relative group font-work-sans"
+                      className="inline-block text-white/80 text-sm transition-all duration-300 hover:text-primary relative group font-work-sans"
                     >
                       {link.label}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -147,6 +138,23 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Payment Security */}
+            <div>
+              <h3 className="font-optima mb-6 text-xl font-bold text-primary">Pay Safely With Us</h3>
+              <p className="text-sm leading-relaxed text-white/80 mb-6 font-work-sans">
+                The payment is encrypted and transmitted securely with an SSL protocol.
+              </p>
+              <div className="mt-6">
+                <Image
+                  src="https://demo.goodlayers.com/traveltour/main4/wp-content/uploads/2019/04/creditcard-logo.png"
+                  alt="Accepted Payment Methods"
+                  width={300}
+                  height={60}
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
