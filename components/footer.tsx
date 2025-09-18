@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Twitter, Instagram, MapPin, Phone, Mail, Heart } from "lucide-react"
 import { Container } from "@/components/ui/container"
 import { useState } from "react"
@@ -15,7 +16,15 @@ export default function Footer() {
     { icon: Instagram, href: "#", label: "Instagram" },
   ]
 
-  const usefulLinks = [{ href: "/", label: "Home" }]
+  const usefulLinks = [
+    { href: "#", label: "MOROCCO TOURS" },
+    { href: "#", label: "MOROCCO DESERT TOURS" },
+    { href: "#", label: "MARRAKECH DAY TRIPS" },
+    { href: "#", label: "MOROCCO TREKKING" },
+    { href: "#", label: "SHORE EXCURSIONS" },
+    { href: "#", label: "BLOG" },
+    { href: "#", label: "CONTACT" },
+  ]
 
   const contactInfo = [
     {
@@ -47,7 +56,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-black relative">
+    <footer
+      className="bg-black relative rounded-t-[30px] md:rounded-t-[80px]"
+      style={{
+        backgroundImage:
+          'url("https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40 rounded-t-[30px] md:rounded-t-[80px]"></div>
+
       <Container className="max-w-6xl mx-auto relative z-10">
         {/* Main footer content */}
         <div className="py-16">
@@ -55,11 +76,13 @@ export default function Footer() {
             {/* Vision */}
             <div>
               <Link href="/" className="inline-block mb-6">
-                <span className="font-optima text-2xl font-bold text-primary">Enchanting</span>
+                <div className="relative h-12 w-32">
+                  <Image src="/whitelogo.png" alt="Enchanting Morocco Logo" fill className="object-contain" priority />
+                </div>
               </Link>
               <p className="text-sm leading-relaxed text-white/80 mb-8 font-work-sans">
-                Preserving the tangible and intangible heritage of Marrakech and its surrounding region through cultural
-                initiatives and community engagement.
+                Discover the magic of Morocco with our authentic tours, desert adventures, and cultural experiences.
+                From the bustling souks of Marrakech to the serene Sahara Desert.
               </p>
               <div>
                 <h4 className="mb-4 text-sm font-semibold text-primary font-optima">Follow Us</h4>
@@ -133,13 +156,16 @@ export default function Footer() {
       <div className="border-t border-white/10 py-6 relative z-10">
         <Container className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white/70 font-work-sans">© {currentYear} Enchanting. All rights reserved.</p>
+            <p className="text-sm text-white/70 font-work-sans">
+              © {currentYear} Enchanting Morocco. All rights reserved.
+            </p>
             <p className="text-sm text-white/70 flex items-center font-work-sans">
               Made with
               <button onClick={handleHeartClick} className="mx-1 rounded-none p-1" aria-label="Click the heart">
                 <Heart
-                  className={`h-4 w-4 transition-all duration-300 ${isHeartAnimating ? "scale-150 text-red-400" : "text-primary"
-                    }`}
+                  className={`h-4 w-4 transition-all duration-300 ${
+                    isHeartAnimating ? "scale-150 text-red-400" : "text-primary"
+                  }`}
                   fill={heartClicks > 0 ? "#f87171" : "none"}
                 />
                 {heartClicks > 0 && <span className="sr-only">Heart clicked {heartClicks} times</span>}

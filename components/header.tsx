@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronRight, Home, Phone } from "lucide-react"
+import { Menu, X, ChevronRight, Phone } from "lucide-react"
 import { Container } from "@/components/ui/container"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
@@ -74,12 +74,13 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-4 flex-1 ml-8">
             {/* Home link */}
             <Link
               href="/"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                } ${pathname === "/" ? "text-primary" : ""}`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              } ${pathname === "/" ? "text-primary" : ""}`}
             >
               HOME
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -87,8 +88,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               MOROCCO TOURS
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -96,8 +98,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               MOROCCO DESERT TOURS
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -105,8 +108,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               MARRAKECH DAY TRIPS
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -114,8 +118,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               MOROCCO TREKKING
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -123,8 +128,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               SHORE EXCURSIONS
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -132,8 +138,9 @@ export default function Header() {
 
             <Link
               href="#"
-              className={`text-sm md:text-md font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase ${scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
-                }`}
+              className={`text-sm md:text-base font-medium transition-all duration-300 hover:scale-105 relative group font-optima uppercase tracking-wider ${
+                scrolled ? "text-gray-800 hover:text-primary" : "text-white hover:text-white/80"
+              }`}
             >
               BLOG
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -145,7 +152,7 @@ export default function Header() {
             <div className="hidden md:block">
               <Link
                 href="mailto:contact@enchanting.org"
-                className="bg-primary text-white px-4 py-2 text-sm md:text-md font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
+                className="bg-primary text-white px-4 py-2 text-sm md:text-base font-medium transition-all duration-300 hover:bg-primary/90 font-optima uppercase"
               >
                 CONTACT
               </Link>
@@ -209,25 +216,6 @@ export default function Header() {
                 {/* Navigation links */}
                 <div className="flex-1 overflow-y-auto py-6 px-4">
                   <nav className="space-y-1">
-                    {/* Home link */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <Link
-                        href="/"
-                        className="flex items-center py-3 px-4 rounded-xl text-white hover:bg-white/10 transition-colors"
-                        onClick={toggleMenu}
-                      >
-                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary mr-4">
-                          <Home className="h-5 w-5" />
-                        </div>
-                        <span className="font-medium text-lg font-optima uppercase">HOME</span>
-                        <ChevronRight className="h-4 w-4 ml-auto" />
-                      </Link>
-                    </motion.div>
-
                     {/* Contact link */}
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
